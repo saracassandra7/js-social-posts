@@ -72,7 +72,7 @@ function createPosts(){
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${post.author.name}</div>
-                    <div class="post-meta__time">${post.created}</div>
+                    <div class="post-meta__time">${reverseData(post.created)}</div>
                 </div>                    
             </div>
         </div>
@@ -99,4 +99,9 @@ function createPosts(){
     container.innerHTML = output;
 }
 
+
+//funzione che rigira la data
+function reverseData(dataDaFormattare) {
+  return dataDaFormattare.split('-').reverse().join('-');
+}
 
