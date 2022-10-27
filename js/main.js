@@ -57,6 +57,8 @@ const posts = [
 ];
 
 const container = document.getElementById('container');
+let counter = 0;
+
 
 //funzione che crea i post
 createPosts();
@@ -83,7 +85,7 @@ function createPosts(){
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="${post.id}">
+                    <a class="like-button  js-like-button" onclick="likeFunction(this)" href="#" data-postid="${post.id}">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -100,8 +102,20 @@ function createPosts(){
 }
 
 
+
 //funzione che rigira la data
 function reverseData(dataDaFormattare) {
   return dataDaFormattare.split('-').reverse().join('-');
 }
+
+/* bonus 1
+Se clicchiamo sul tasto “Mi Piace” cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.*/
+const likeBtn = document.querySelector('.like-button');
+
+function likeFunction(likeBtn){
+    likeBtn.classList.toggle('like-button--liked');
+}
+
+
 
